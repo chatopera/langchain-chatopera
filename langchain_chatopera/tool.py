@@ -1,9 +1,11 @@
 """Tool for Chatopera Bot Services, https://bot.chatopera.com/"""
 
 from typing import Dict, List, Literal, Optional, Tuple
-
 from langchain_core.callbacks import CallbackManagerForToolRun
 from langchain_core.tools import BaseTool
+import log5
+
+logger = log5.get_logger(logger_name=log5.LN("langchain_chatopera"), output_mode=log5.OUTPUT_STDOUT)
 
 from .api_wrapper import ChatoperaBotAPIWrapper
 
@@ -94,9 +96,9 @@ class ChatoperaBotResults(BaseTool):
     ) -> Tuple[str, List[Dict]]:
         """Use the tool."""
         try:
-            # logger.info("%s query %s", self.name, query)
+            logger.info("%s query %s", self.name, query)
             results = self.api_wrapper.results(query, self.num_results)
-            # logger.info("%s result %s", self.name, results)
+            logger.info("%s result %s", self.name, results)
             return str(results), results
         except Exception as e:
             return repr(e), []

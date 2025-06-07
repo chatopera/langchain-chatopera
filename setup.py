@@ -12,7 +12,7 @@ https://github.com/chatopera/langchain-chatopera
 
 setup(
     name='langchain_chatopera',
-    version='0.0.2',
+    version='0.0.3',
     description='build Agent Services by integrating chatopera cloud services with langchain via tool calling',
     long_description=LONGDOC,
     author='Chatopera DevOps Team',
@@ -33,7 +33,8 @@ setup(
     install_requires=[
         'langchain>=0.3.0',
         'pydantic>=2.0.0',
-        'chatopera>=2.0.0'
+        'chatopera>=2.0.0',
+        'log5>=0.0.5'
     ],
     package_data={
         'langchain-chatopera': [
